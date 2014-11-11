@@ -96,77 +96,81 @@ public class Laba2 {
         
         for(int i = 0; i < numberOfElement; i++)
         {
-             if(xiN12[i].value() <= 1.0*dxXiN12)  inDxN12[0]++;
+            if(xiN12[i].value() <= (minXiN12 + 1.0*dxXiN12))  inDxN12[0]++;
             
-            if((xiN12[i].value() <= 2.0*dxXiN12)
-            &&(xiN12[i].value() >= 1.0*dxXiN12)) inDxN12[1]++;
+            if((xiN12[i].value() > (minXiN12 + 1.0*dxXiN12))
+            &&(xiN12[i].value() <= (minXiN12 + 2.0*dxXiN12))) inDxN12[1]++;
             
-            if((xiN12[i].value() <= 3.0*dxXiN12)
-            &&(xiN12[i].value() >= 2.0*dxXiN12)) inDxN12[2]++;
+            if((xiN12[i].value() > (minXiN12 + 2.0*dxXiN12))
+            &&(xiN12[i].value() <= (minXiN12 + 3.0*dxXiN12))) inDxN12[2]++;
+         
+            if((xiN12[i].value() > (minXiN12 + 3.0*dxXiN12))
+            &&(xiN12[i].value() <= (minXiN12 + 4.0*dxXiN12))) inDxN12[3]++;
             
-            if((xiN12[i].value() <= 4.0*dxXiN12) 
-            &&(xiN12[i].value() >= 3.0*dxXiN12)) inDxN12[3]++;
+            if((xiN12[i].value() > (minXiN12 + 4.0*dxXiN12))
+            &&(xiN12[i].value() <= (minXiN12 + 5.0*dxXiN12))) inDxN12[4]++;
             
-            if((xiN12[i].value() <= 5.0*dxXiN12)
-            &&(xiN12[i].value() >= 4.0*dxXiN12)) inDxN12[4]++;   
+           
+            if(xiN48[i].value() <= (minXiN48 + 1.0*dxXiN48))  inDxN48[0]++;
             
+            if((xiN48[i].value() > (minXiN48 + 1.0*dxXiN48))
+            &&(xiN48[i].value() <= (minXiN48 + 2.0*dxXiN48))) inDxN48[1]++;
             
-            if(xiN48[i].value() <= 1.0*dxXiN48)  inDxN48[0]++;
+            if((xiN48[i].value() > (minXiN48 + 2.0*dxXiN48))
+            &&(xiN48[i].value() <= (minXiN48 + 3.0*dxXiN48))) inDxN48[2]++;
+         
+            if((xiN48[i].value() > (minXiN48 + 3.0*dxXiN48))
+            &&(xiN48[i].value() <= (minXiN48 + 4.0*dxXiN48))) inDxN48[3]++;
             
-            if((xiN48[i].value() <= 2.0*dxXiN48)
-            &&(xiN48[i].value() >= 1.0*dxXiN48)) inDxN48[1]++;
-            
-            if((xiN48[i].value() <= 3.0*dxXiN48)
-            &&(xiN48[i].value() >= 2.0*dxXiN48)) inDxN48[2]++;
-            
-            if((xiN48[i].value() <= 4.0*dxXiN48) 
-            &&(xiN48[i].value() >= 3.0*dxXiN48)) inDxN48[3]++;
-            
-            if((xiN48[i].value() <= 5.0*dxXiN48)
-            &&(xiN48[i].value() >= 4.0*dxXiN48)) inDxN48[4]++;   
+            if((xiN48[i].value() > (minXiN48 + 4.0*dxXiN48))
+            &&(xiN48[i].value() <= (minXiN48 + 5.0*dxXiN48))) inDxN48[4]++;
             
             
-            if(xiN3[i].value() <= 1.0*dxXiN3)  inDxN3[0]++;
+            if(xiN3[i].value() <= (minXiN3 + 1.0*dxXiN3))  inDxN3[0]++;
             
-            if((xiN3[i].value() <= 2.0*dxXiN3)
-            &&(xiN3[i].value() >= 1.0*dxXiN3)) inDxN3[1]++;
+            if((xiN3[i].value() > (minXiN3 + 1.0*dxXiN3))
+            &&(xiN3[i].value() <= (minXiN3 + 2.0*dxXiN3))) inDxN3[1]++;
             
-            if((xiN3[i].value() <= 3.0*dxXiN3)
-            &&(xiN3[i].value() >= 2.0*dxXiN3)) inDxN3[2]++;
+            if((xiN3[i].value() > (minXiN3 + 2.0*dxXiN3))
+            &&(xiN3[i].value() <= (minXiN3 + 3.0*dxXiN3))) inDxN3[2]++;
+         
+            if((xiN3[i].value() > (minXiN3 + 3.0*dxXiN3))
+            &&(xiN3[i].value() <= (minXiN3 + 4.0*dxXiN3))) inDxN3[3]++;
             
-            if((xiN3[i].value() <= 4.0*dxXiN3) 
-            &&(xiN3[i].value() >= 3.0*dxXiN3)) inDxN3[3]++;
-            
-            if((xiN3[i].value() <= 5.0*dxXiN3)
-            &&(xiN3[i].value() >= 4.0*dxXiN3)) inDxN3[4]++;  
+            if((xiN3[i].value() > (minXiN3 + 4.0*dxXiN3))
+            &&(xiN3[i].value() <= (minXiN3 + 5.0*dxXiN3))) inDxN3[4]++;
         }
         
         System.out.println("");
         System.out.println("for N12");
-        System.out.println("1*dx: "+(double)inDxN12[0]/2);
-        System.out.println("2*dx: "+(double)inDxN12[1]/2);
-        System.out.println("3*dx: "+(double)inDxN12[2]/2);
-        System.out.println("4*dx: "+(double)inDxN12[3]/2);
-        System.out.println("5*dx: "+(double)inDxN12[4]/2);
+        System.out.println("1*dx: "+(double)inDxN12[0]/10);
+        System.out.println("2*dx: "+(double)inDxN12[1]/10);
+        System.out.println("3*dx: "+(double)inDxN12[2]/10);
+        System.out.println("4*dx: "+(double)inDxN12[3]/10);
+        System.out.println("5*dx: "+(double)inDxN12[4]/10);
+        int total= inDxN12[0]+inDxN12[1]+inDxN12[2]+inDxN12[3]+inDxN12[4];
+        System.out.println("total:"+total/10);
         
         System.out.println("");
         System.out.println("for N48");
-        System.out.println("1*dx: "+(double)inDxN48[0]/2);
-        System.out.println("2*dx: "+(double)inDxN48[1]/2);
-        System.out.println("3*dx: "+(double)inDxN48[2]/2);
-        System.out.println("4*dx: "+(double)inDxN48[3]/2);
-        System.out.println("5*dx: "+(double)inDxN48[4]/2);
+        System.out.println("1*dx: "+(double)inDxN48[0]/10);
+        System.out.println("2*dx: "+(double)inDxN48[1]/10);
+        System.out.println("3*dx: "+(double)inDxN48[2]/10);
+        System.out.println("4*dx: "+(double)inDxN48[3]/10);
+        System.out.println("5*dx: "+(double)inDxN48[4]/10);
+        total= inDxN48[0]+inDxN48[1]+inDxN48[2]+inDxN48[3]+inDxN48[4];
+        System.out.println("total:"+total/10);
         
         System.out.println("");
         System.out.println("for N3");
-        System.out.println("1*dx: "+(double)inDxN3[0]/2);
-        System.out.println("2*dx: "+(double)inDxN3[1]/2);
-        System.out.println("3*dx: "+(double)inDxN3[2]/2);
-        System.out.println("4*dx: "+(double)inDxN3[3]/2);
-        System.out.println("5*dx: "+(double)inDxN3[4]/2);
+        System.out.println("1*dx: "+(double)inDxN3[0]/10);
+        System.out.println("2*dx: "+(double)inDxN3[1]/10);
+        System.out.println("3*dx: "+(double)inDxN3[2]/10);
+        System.out.println("4*dx: "+(double)inDxN3[3]/10);
+        System.out.println("5*dx: "+(double)inDxN3[4]/10);
+        total= inDxN3[0]+inDxN3[1]+inDxN3[2]+inDxN3[3]+inDxN3[4];
+        System.out.println("total:"+total/10);
         
-        for(int i=0; i<numberOfElement; i++)
-            System.out.println(xiN12[i].value());
     }  
     
 }
