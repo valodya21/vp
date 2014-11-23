@@ -10,7 +10,7 @@ package vp1;
  * @author valodya21
  */
 public class Laba2 {
-    int numberOfElement = 1000;
+    int numberOfElement = 100;
     public FuncXi[] xiN12 = new FuncXi[numberOfElement];
     public FuncXi[] xiN48 = new FuncXi[numberOfElement];
     public FuncXi[] xiN3  = new FuncXi[numberOfElement];
@@ -31,7 +31,9 @@ public class Laba2 {
     int totalInDx48;
     int totalInDx3;
     
-    public void makeFunc()
+    double hi2N12, hi2N48, hi2N3;
+    
+    public void p2()
     {   
         for(int i=0; i<numberOfElement; i++)
         {
@@ -140,37 +142,93 @@ public class Laba2 {
             if((xiN3[i].value() > (minXiN3 + 4.0*dxXiN3))
             &&(xiN3[i].value() <= (minXiN3 + 5.0*dxXiN3))) inDxN3[4]++;
         }
-        
         System.out.println("");
         System.out.println("for N12");
-        System.out.println("1*dx: "+(double)inDxN12[0]/10);
-        System.out.println("2*dx: "+(double)inDxN12[1]/10);
-        System.out.println("3*dx: "+(double)inDxN12[2]/10);
-        System.out.println("4*dx: "+(double)inDxN12[3]/10);
-        System.out.println("5*dx: "+(double)inDxN12[4]/10);
-        int total= inDxN12[0]+inDxN12[1]+inDxN12[2]+inDxN12[3]+inDxN12[4];
-        System.out.println("total:"+total/10);
+        System.out.println("1*dx: "+(double)inDxN12[0]/numberOfElement);
+        System.out.println("2*dx: "+(double)inDxN12[1]/numberOfElement);
+        System.out.println("3*dx: "+(double)inDxN12[2]/numberOfElement);
+        System.out.println("4*dx: "+(double)inDxN12[3]/numberOfElement);
+        System.out.println("5*dx: "+(double)inDxN12[4]/numberOfElement);
+        float total= inDxN12[0]+inDxN12[1]+inDxN12[2]+inDxN12[3]+inDxN12[4];
+        System.out.println("total:"+total/numberOfElement);
         
         System.out.println("");
         System.out.println("for N48");
-        System.out.println("1*dx: "+(double)inDxN48[0]/10);
-        System.out.println("2*dx: "+(double)inDxN48[1]/10);
-        System.out.println("3*dx: "+(double)inDxN48[2]/10);
-        System.out.println("4*dx: "+(double)inDxN48[3]/10);
-        System.out.println("5*dx: "+(double)inDxN48[4]/10);
+        System.out.println("1*dx: "+(double)inDxN48[0]/numberOfElement);
+        System.out.println("2*dx: "+(double)inDxN48[1]/numberOfElement);
+        System.out.println("3*dx: "+(double)inDxN48[2]/numberOfElement);
+        System.out.println("4*dx: "+(double)inDxN48[3]/numberOfElement);
+        System.out.println("5*dx: "+(double)inDxN48[4]/numberOfElement);
         total= inDxN48[0]+inDxN48[1]+inDxN48[2]+inDxN48[3]+inDxN48[4];
-        System.out.println("total:"+total/10);
+        System.out.println("total:"+total/numberOfElement);
         
         System.out.println("");
         System.out.println("for N3");
-        System.out.println("1*dx: "+(double)inDxN3[0]/10);
-        System.out.println("2*dx: "+(double)inDxN3[1]/10);
-        System.out.println("3*dx: "+(double)inDxN3[2]/10);
-        System.out.println("4*dx: "+(double)inDxN3[3]/10);
-        System.out.println("5*dx: "+(double)inDxN3[4]/10);
+        System.out.println("1*dx: "+(double)inDxN3[0]/numberOfElement);
+        System.out.println("2*dx: "+(double)inDxN3[1]/numberOfElement);
+        System.out.println("3*dx: "+(double)inDxN3[2]/numberOfElement);
+        System.out.println("4*dx: "+(double)inDxN3[3]/numberOfElement);
+        System.out.println("5*dx: "+(double)inDxN3[4]/numberOfElement);
         total= inDxN3[0]+inDxN3[1]+inDxN3[2]+inDxN3[3]+inDxN3[4];
-        System.out.println("total:"+total/10);
+        System.out.println("total:"+total/numberOfElement);
         
+        
+        System.out.println("\nxi^2 for n12");
+        hi2N12=0;
+	for(int i=0; i<5; i++)
+	{
+		hi2N12 += ((((double)inDxN12[ i ]/numberOfElement) - 0.2 )
+                      *(((double)inDxN12[ i ]/numberOfElement) - 0.2 )) / 0.2;
+	}
+        System.out.println(hi2N12);
+        
+        System.out.println("\nxi^2 for n48");
+        hi2N48=0;
+	for(int i=0; i<5; i++)
+	{
+		hi2N48 += ((((double)inDxN48[ i ]/numberOfElement) - 0.2 )
+                      *(((double)inDxN48[ i ]/numberOfElement) - 0.2 )) / 0.2;
+	}
+        System.out.println(hi2N48);
+                
+        System.out.println("\nxi^2 for n3");
+        hi2N3=0;
+	for(int i=0; i<5; i++)
+	{
+		hi2N3 += ((((double)inDxN3[ i ]/numberOfElement) - 0.2 )
+                      *(((double)inDxN3[ i ]/numberOfElement) - 0.2 )) / 0.2;
+	}
+        System.out.println(hi2N3);
+        
+        System.out.println("\nEmpirical law for n12");
+        for(short i=0; i<5; i++)
+        {
+            System.out.println(Math.exp( (double)-(2.0*minXiN12 + (2.0*i +1.0) * dxXiN12 )*(2*minXiN12 + (2*i +1) * dxXiN12 )/8 )/Math.sqrt( 2.0* 3.14));
+        }
+        
+        System.out.println("\nEmpirical law for n48");
+        for(short i=0; i<5; i++)
+        {
+            System.out.println(Math.exp( (double)-(2.0*minXiN48 + (2.0*i +1.0) * dxXiN48 )*(2*minXiN48 + (2*i +1) * dxXiN48 )/8 )/Math.sqrt( 2.0* 3.14));
+        }
+        
+        System.out.println("\nEmpirical law for n3");
+        for(short i=0; i<5; i++)
+        {
+            System.out.println(Math.exp( (double)-(2.0*minXiN3 + (2.0*i +1.0) * dxXiN3 )*(2*minXiN3 + (2*i +1) * dxXiN3 )/8 )/Math.sqrt( 2.0* 3.14));
+        }
     }  
     
+    public void p1()
+    {
+        FuncXi func0 = new FuncXi();
+        System.out.println(func0.Xi());
+        
+        FuncXi func1 = new FuncXi01();
+        System.out.println(func1.Xi());
+        
+        FuncXi func2 = new FuncXi02();
+        System.out.println(func2.Xi());
+    }        
+          
 }
