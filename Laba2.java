@@ -98,7 +98,8 @@ public class Laba2 {
         
         for(int i = 0; i < numberOfElement; i++)
         {
-            if(xiN12[i].value() <= (minXiN12 + 1.0*dxXiN12))  inDxN12[0]++;
+            if((xiN12[i].value() > (minXiN12 + 0.0*dxXiN12))
+            &&(xiN12[i].value() <= (minXiN12 + 1.0*dxXiN12)))  inDxN12[0]++;
             
             if((xiN12[i].value() > (minXiN12 + 1.0*dxXiN12))
             &&(xiN12[i].value() <= (minXiN12 + 2.0*dxXiN12))) inDxN12[1]++;
@@ -173,6 +174,9 @@ public class Laba2 {
         System.out.println("total:"+total/numberOfElement);
         
         
+        //ошибка!   вместо 0.2 надо поставить итый 
+        //          елемент емперического росп для каждого n
+        
         System.out.println("\nxi^2 for n12");
         hi2N12=0;
 	for(int i=0; i<5; i++)
@@ -199,6 +203,8 @@ public class Laba2 {
                       *(((double)inDxN3[ i ]/numberOfElement) - 0.2 )) / 0.2;
 	}
         System.out.println(hi2N3);
+        
+        
         
         System.out.println("\nEmpirical law for n12");
         for(short i=0; i<5; i++)
