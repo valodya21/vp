@@ -3,12 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package vp1;
 
-/**
- *
- * @author valodya21
- */
 public class Laba2 {
     int numberOfElement = 100;
     public FuncXi[] xiN12 = new FuncXi[numberOfElement];
@@ -177,63 +174,72 @@ public class Laba2 {
         //ошибка!   вместо 0.2 надо поставить итый 
         //          елемент емперического росп для каждого n
         
-        System.out.println("\nxi^2 for n12");
-        hi2N12=0;
-	for(int i=0; i<5; i++)
-	{
-		hi2N12 += ((((double)inDxN12[ i ]/numberOfElement) - 0.2 )
-                      *(((double)inDxN12[ i ]/numberOfElement) - 0.2 )) / 0.2;
-	}
-        System.out.println(hi2N12);
-        
-        System.out.println("\nxi^2 for n48");
-        hi2N48=0;
-	for(int i=0; i<5; i++)
-	{
-		hi2N48 += ((((double)inDxN48[ i ]/numberOfElement) - 0.2 )
-                      *(((double)inDxN48[ i ]/numberOfElement) - 0.2 )) / 0.2;
-	}
-        System.out.println(hi2N48);
-                
-        System.out.println("\nxi^2 for n3");
-        hi2N3=0;
-	for(int i=0; i<5; i++)
-	{
-		hi2N3 += ((((double)inDxN3[ i ]/numberOfElement) - 0.2 )
-                      *(((double)inDxN3[ i ]/numberOfElement) - 0.2 )) / 0.2;
-	}
-        System.out.println(hi2N3);
+
         
         
-        
+        double EmpN12[] = new double[5];
+        double EmpN48[] = new double[5];
+        double EmpN3[] = new double[5];
         System.out.println("\nEmpirical law for n12");
         for(short i=0; i<5; i++)
         {
-            System.out.println(Math.exp( (double)-(2.0*minXiN12 + (2.0*i +1.0) * dxXiN12 )*(2*minXiN12 + (2*i +1) * dxXiN12 )/8 )/Math.sqrt( 2.0* 3.14));
+            EmpN12[i]=Math.exp( (double)-(2.0*minXiN12 + (2.0*i +1.0) * dxXiN12 )*(2*minXiN12 + (2*i +1) * dxXiN12 )/8 )/Math.sqrt( 2.0* 3.14);
+            System.out.println(EmpN12[i]);
         }
         
         System.out.println("\nEmpirical law for n48");
         for(short i=0; i<5; i++)
         {
-            System.out.println(Math.exp( (double)-(2.0*minXiN48 + (2.0*i +1.0) * dxXiN48 )*(2*minXiN48 + (2*i +1) * dxXiN48 )/8 )/Math.sqrt( 2.0* 3.14));
+            EmpN48[i]=Math.exp( (double)-(2.0*minXiN48 + (2.0*i +1.0) * dxXiN48 )*(2*minXiN48 + (2*i +1) * dxXiN48 )/8 )/Math.sqrt( 2.0* 3.14);
+            System.out.println(EmpN48[i]);
         }
         
         System.out.println("\nEmpirical law for n3");
         for(short i=0; i<5; i++)
         {
-            System.out.println(Math.exp( (double)-(2.0*minXiN3 + (2.0*i +1.0) * dxXiN3 )*(2*minXiN3 + (2*i +1) * dxXiN3 )/8 )/Math.sqrt( 2.0* 3.14));
+            EmpN3[i]=Math.exp( (double)-(2.0*minXiN3 + (2.0*i +1.0) * dxXiN3 )*(2*minXiN3 + (2*i +1) * dxXiN3 )/8 )/Math.sqrt( 2.0* 3.14);
+            System.out.println(EmpN3[i]);
         }
+
+
+        System.out.println("\nxi^2 for n12");
+        hi2N12=0;
+        for(int i=0; i<5; i++)
+        {
+            hi2N12 += ((((double)inDxN12[ i ]/numberOfElement) - EmpN12[i] )
+                    *(((double)inDxN12[ i ]/numberOfElement) - EmpN12[i] )) / EmpN12[i];
+        }
+        System.out.println(hi2N12);
+
+        System.out.println("\nxi^2 for n48");
+        hi2N48=0;
+        for(int i=0; i<5; i++)
+        {
+            hi2N48 += ((((double)inDxN48[ i ]/numberOfElement) - EmpN48[i] )
+                    *(((double)inDxN48[ i ]/numberOfElement) - EmpN48[i])) / EmpN48[i];
+        }
+        System.out.println(hi2N48);
+
+        System.out.println("\nxi^2 for n3");
+        hi2N3=0;
+        for(int i=0; i<5; i++)
+        {
+            hi2N3 += ((((double)inDxN3[ i ]/numberOfElement) - EmpN3[i] )
+                    *(((double)inDxN3[ i ]/numberOfElement) - EmpN3[i] )) / EmpN3[i] ;
+        }
+        System.out.println(hi2N3);
+
     }  
     
     public void p1()
     {
         FuncXi func0 = new FuncXi();
-        System.out.println(func0.Xi());
+        System.out.println(func0.Xi(12));
         
-        FuncXi func1 = new FuncXi01();
+        FuncXi01 func1 = new FuncXi01();
         System.out.println(func1.Xi());
         
-        FuncXi func2 = new FuncXi02();
+        FuncXi02 func2 = new FuncXi02();
         System.out.println(func2.Xi());
     }        
           
