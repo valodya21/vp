@@ -15,12 +15,9 @@ public class VP1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) 
-    {
-        FuncXi02 func = new FuncXi02();
-        System.out.println(func.Xi());
-        Laba2 lab = new Laba2();
-        lab.makeFunc();
-        // TODO code application logic here
+    {    
+        Laba2.p1();
+        Laba2.p2();
     }
     
 }
