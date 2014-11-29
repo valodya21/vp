@@ -26,6 +26,11 @@ public class FuncXi {
         else return -1;
     }
     
+    public double Xi()
+    {
+        return Xi(12);   
+    }
+    
     public double Xi(int nForXi)
     {
         if(nForXi <= 0) return -1;
@@ -43,6 +48,20 @@ public class FuncXi {
         answer *= sum;
         value = answer;
         return answer;
+    }
+    
+    static double max(FuncXi[] arr)
+    {
+        double max=arr[0].value();
+        for(int i=0; i<arr.length;i++) if(max <= arr[i].value()) max = arr[i].value();
+        return max;
+    }
+    
+    static double min(FuncXi[] arr)
+    {
+        double min=arr[0].value();
+        for(int i=0; i<arr.length;i++) if(min >= arr[i].value()) min = arr[i].value();
+        return min;
     }
     
 }
