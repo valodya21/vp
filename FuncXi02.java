@@ -14,7 +14,7 @@ public class FuncXi02 extends FuncXi{
     public double Xi(double alpha1, double alpha2)
     {
         double answer;
-        answer = (Math.sqrt( -2.0*Math.log10(alpha1))*Math.sin(2.0*3.14*alpha2));        
+        answer = (Math.sqrt( -2.0*Math.log10(alpha1))*Math.sin(2.0*Math.PI*alpha2));        
         value = answer;
         return value;
     }
