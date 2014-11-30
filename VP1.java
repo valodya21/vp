@@ -16,8 +16,11 @@ public class VP1 {
      */
     public static void main(String[] args) 
     {    
+        System.out.println("lab2");
         Laba2.p1();
         Laba2.p2();
-    }
-    
+        System.out.println("lab3");
+        Laba3 lab = new Laba3();
+        lab.p1();
+    }    
 }
