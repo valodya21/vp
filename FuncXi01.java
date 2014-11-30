@@ -9,19 +9,18 @@ package vp1;
  *
  * @author valodya21
  */
-public class FuncXi01 extends FuncXi{
+public class FuncXi01 extends Func{
     
-    public double Xi(double alpha1, double alpha2)
+    public double Xi01(double alpha1, double alpha2)
     {
         double answer;
-        answer = (Math.sqrt( -2.0*Math.log10(alpha1))*Math.cos(2.0*3.14*alpha2));
+        answer = (Math.sqrt( -2.0*Math.log10(alpha1))*Math.cos(2.0*Math.PI*alpha2));
         value = answer;
         return value;
     }
     
-    public double Xi()
+    public double Xi01()
     {
-        return Xi(Math.random(),Math.random());
+        return Xi01(Math.random(),Math.random());
     }
-    
 }
