@@ -10,10 +10,9 @@ package vp1;
  * @author valodya21
  */
 public class Laba2 {
-    static void p2_(int nForXi)
+    static void p2_(int nForXi, int numberOfElement)
     {
-        int numberOfElement = 100;
-        FuncXi[] xi = new FuncXi[numberOfElement];
+        Func[] xi = new Func[numberOfElement];
     
         double max, min;
     
@@ -28,12 +27,12 @@ public class Laba2 {
         
         for(int i=0; i<numberOfElement; i++)
         {
-            xi[i] = new FuncXi();
+            xi[i] = new Func();
             xi[i].Xi(nForXi);
         }
         
-        max = FuncXi.max(xi);        
-        min = FuncXi.min(xi);
+        max = Func.max(xi);        
+        min = Func.min(xi);
         
         r = max - min;      
         dx = r/5.0;
@@ -74,20 +73,16 @@ public class Laba2 {
     
     static void p2()
     {
-        p2_(12);
-        p2_(48);
-        p2_(3);
+        p2_(12, 100);
+        p2_(48, 100);
+        p2_(3, 100);
     }
     
     static void p1()
     {
-        FuncXi func0 = new FuncXi();
-        System.out.println("Fucn Xi  = "+func0.Xi());
-        
-        FuncXi func1 = new FuncXi01();
-        System.out.println("Fucn Xi1 = "+func1.Xi());
-        
-        FuncXi func2 = new FuncXi02();
-        System.out.println("Fucn Xi2 = "+func2.Xi());
+        FuncXi02 func = new FuncXi02();
+        System.out.println("Fucn Xi  = "+func.Xi());
+        System.out.println("Fucn Xi1 = "+func.Xi01());
+        System.out.println("Fucn Xi2 = "+func.Xi02());
     }
 }
