@@ -9,7 +9,7 @@ package vp1;
  *
  * @author valodya21
  */
-public class FuncXi {
+public class Func {
     
     double value;
     
@@ -50,17 +50,17 @@ public class FuncXi {
         return answer;
     }
     
-    static double max(FuncXi[] arr)
+    static double max(Func[] arr)
     {
         double max=arr[0].value();
-        for(int i=0; i<arr.length;i++) if(max <= arr[i].value()) max = arr[i].value();
+        for (Func arr1 : arr) if (max <= arr1.value()) max = arr1.value();
         return max;
     }
     
-    static double min(FuncXi[] arr)
+    static double min(Func[] arr)
     {
         double min=arr[0].value();
-        for(int i=0; i<arr.length;i++) if(min >= arr[i].value()) min = arr[i].value();
+        for (Func arr1 : arr) if (min >= arr1.value()) min = arr1.value();
         return min;
     }
     
