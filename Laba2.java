@@ -15,14 +15,11 @@ public class Laba2 {
         Func[] xi = new Func[numberOfElement];
     
         double max, min;
-    
-        double r;
-        double dx;
+        double r, dx;
+        double total;
+        double hi2;
         
         int inDx[] = new int[5];
-        double total;
-    
-        double hi2;
         double Emp[];// = new double[5];
         
         for(int i=0; i<numberOfElement; i++)
@@ -37,14 +34,7 @@ public class Laba2 {
         r = max - min;      
         dx = r/5.0;
                 
-        for(int i = 0; i < numberOfElement; i++)
-        {
-            for(int j=0;j<5;j++)
-            {
-                if((xi[i].value() >= (min + j*dx))
-                &&(xi[i].value() <= (min + (j+1)*dx))) inDx[j]++;
-            }
-        }
+        inDx=Func.variance(xi, 5);
         
         total= inDx[0]+inDx[1]+inDx[2]+inDx[3]+inDx[4];
         
@@ -59,8 +49,8 @@ public class Laba2 {
         System.out.println("R = max - min: "+r);
         System.out.println("dx = R/5: "+dx);
         System.out.println("\nhits in the gap between");
-        for(int i=1; i<6;i++)
-            System.out.println((i-1)+"*dx and "+i+"*dx: "+ (double)inDx[i-1]/numberOfElement);
+        for(int i=0; i<5;i++)
+            System.out.println(i+"*dx and "+(i+1)+"*dx: "+ (double)inDx[i]/numberOfElement);
         System.out.println("total hits: "+total/numberOfElement);
       
         System.out.println("\nEmpirical law");
