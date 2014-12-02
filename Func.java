@@ -1,24 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package vp1;
 
-/**
- *
- * @author valodya21
- */
+//@author valodya21
+
 public class Func {
-    
     double value;
-    
     double alfa[];
     
-    public double value()
-    {
-        return value;
-    }
+    public double value(){return value;}
     
     public double alfa(int n)
     {
@@ -26,24 +14,18 @@ public class Func {
         else return -1;
     }
     
-    public double Xi()
-    {
-        return Xi(12);   
-    }
+    public double Xi(){return Xi(12);}
     
     public double Xi(int nForXi)
     {
         if(nForXi <= 0) return -1;
         alfa = new double[nForXi];
         double answer;
-        double toDevision = (double)12/nForXi;
-        answer = Math.sqrt(toDevision);
-        
+        answer = Math.sqrt((double)12/nForXi);
         double sum = 0;
-        for(int i= 1; i<=nForXi ; i++)
-        {
-            alfa[i-1] = Math.random();
-            sum += (alfa[i-1] -  0.5);    
+        for(int i= 0; i<=nForXi ; i++){
+            alfa[i] = Math.random();
+            sum += (alfa[i] -  0.5);    
         }
         answer *= sum;
         value = answer;
@@ -64,4 +46,13 @@ public class Func {
         return min;
     }
     
+    static int[] variance(Func[] arr, int interval)
+    {
+        double min = min(arr), max = max(arr);
+        double dx = (max-min)/interval;
+        int []hits = new int[interval];
+        for(Func arr1 : arr) for(int j = 0; j<interval; j++)
+                if ((arr1.value() >= (min + j*dx)) && (arr1.value() <= (min + (j+1)*dx))) hits[j]++;
+        return hits;
+    }
 }
