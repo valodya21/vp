@@ -1,15 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package vp1;
 
-/**
- *
- * @author valodya21
- */
-public class Laba2 {
+//@author valodya21
+
+public class Laba2
+{
     static void p2_(int nForXi, int numberOfElement)
     {
         Func[] xi = new Func[numberOfElement];
@@ -19,8 +13,8 @@ public class Laba2 {
         double total;
         double hi2;
         
-        int inDx[] = new int[5];
-        double Emp[];// = new double[5];
+        int inDx[];
+        double Emp[];
         
         for(int i=0; i<numberOfElement; i++)
         {
