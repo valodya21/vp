@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package vp1;
 
-/**
- *
- * @author valodya21
- */
+//@author valodya21
+
 public class Laba3 {
     public void p1()
     {
@@ -24,6 +17,8 @@ public class Laba3 {
         double []lambda2    = new double[M];
         double []epsilon1   = new double[100];
         double []epsilon2   = new double[100];
+        int    []interval1;
+        int    []interval2;
         
         for(int j=0;j<100;j++)
         { 
@@ -41,9 +36,28 @@ public class Laba3 {
             }
             epsilon1[j]=func.Epsilon(lambda1, x_i, y_i, j, M);
             epsilon2[j]=func.Epsilon(lambda2, x_i, y_i, j, M);
-            System.out.println("E1 "+j+": "+epsilon1[j]+"\t E2 "+j+": "+epsilon2[j]);
         }
+        interval1=TerVer.variance(epsilon1, 5);
+        interval2=TerVer.variance(epsilon2, 5);
+        
+        System.out.println("for Xi1(t)");
+        System.out.println("min: "+TerVer.min(epsilon1));
+        System.out.println("max: "+TerVer.max(epsilon1));
+        System.out.println("Average: "+TerVer.avarge(epsilon1));
+        System.out.println("Intervals");
+        for(int i=1; i<6; i++)
+            System.out.println(i+": "+interval1[i-1]);
+        
+        System.out.println("");
+        
+        System.out.println("for Xi2(t)");
+        System.out.println("min: "+TerVer.min(epsilon2));
+        System.out.println("max: "+TerVer.max(epsilon2));
+        System.out.println("Average: "+TerVer.avarge(epsilon2));
+        System.out.println("Intervals");
+        for(int i=1; i<6; i++)
+            System.out.println(i+": "+interval2[i-1]);
+        
+        System.out.println("~~~~~~~~~~~~~~~~~~");
     }
 }
-//Лаба не дописана.  
-//За отриманими реалізаціями оцінити середнє та дисперсію для двох процесів.
