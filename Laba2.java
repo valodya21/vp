@@ -28,7 +28,7 @@ public class Laba2
         r = max - min;      
         dx = r/5.0;
                 
-        inDx=Func.variance(xi, 5);
+        inDx=TerVer.variance(Func.toDouble(xi), 5);
         
         total= inDx[0]+inDx[1]+inDx[2]+inDx[3]+inDx[4];
         
