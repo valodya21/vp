@@ -23,7 +23,7 @@ public class Func {
         double answer;
         answer = Math.sqrt((double)12/nForXi);
         double sum = 0;
-        for(int i= 0; i<=nForXi ; i++){
+        for(int i= 0; i<nForXi ; i++){
             alfa[i] = Math.random();
             sum += (alfa[i] -  0.5);    
         }
