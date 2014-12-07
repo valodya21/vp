@@ -32,6 +32,14 @@ public class Func {
         return answer;
     }
     
+    static double[] toDouble(Func[] func)
+    {
+        double[] answer = new double[func.length];
+        for(int i = 0; i<func.length; i++)
+            answer[i] = func[i].value();
+        return answer;
+    }
+    
     static double max(Func[] arr)
     {
         double max=arr[0].value();
@@ -44,15 +52,5 @@ public class Func {
         double min=arr[0].value();
         for (Func arr1 : arr) if (min >= arr1.value()) min = arr1.value();
         return min;
-    }
-    
-    static int[] variance(Func[] arr, int interval)
-    {
-        double min = min(arr), max = max(arr);
-        double dx = (max-min)/interval;
-        int []hits = new int[interval];
-        for(Func arr1 : arr) for(int j = 0; j<interval; j++)
-                if ((arr1.value() >= (min + j*dx)) && (arr1.value() <= (min + (j+1)*dx))) hits[j]++;
-        return hits;
     }
 }
